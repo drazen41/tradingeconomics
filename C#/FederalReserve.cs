@@ -13,7 +13,7 @@ namespace CSharpExamples
         /// <summary>
         /// Store the client key to be used through the program
         /// </summary>
-        static string _clientKey = "guest:guest";
+        static string _clientKey = "rflo8xtosclgl3i:e46covymlcpjx2z";
 
         static void Main(string[] args)
         {
