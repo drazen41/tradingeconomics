@@ -1,0 +1,105 @@
+﻿@model IEnumerable<TE1.Models.Responses.RatingResponse>
+
+@{
+    ViewBag.Title = "HistoricalRatings";
+}
+
+<h2>HistoricalRatings</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Agency)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Outlook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TE_Outlook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SP_Outlook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Moodys)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Moodys_Outlook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fitch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fitch_outlook)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Agency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Outlook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TE_Outlook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SP_Outlook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Moodys)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Moodys_Outlook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fitch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fitch_outlook)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

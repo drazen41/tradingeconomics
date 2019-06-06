@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace CSharpExamples
 {
-    class Ratings
+    public class Ratings
     {
         /// <summary>
         /// Store the client key to be used through the program
         /// </summary>
-        static string _clientKey = "guest:guest";
+        public static string _clientKey = "rflo8xtosclgl3i:e46covymlcpjx2z";
 
         static void Main(string[] args)
         {

@@ -151,8 +151,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Responses\CountryResponse.cs" />
+    <Compile Include="Models\Responses\CurrencyResponse.cs" />
+    <Compile Include="Models\Responses\FacetsResponse.cs" />
+    <Compile Include="Models\Responses\InfoResponse.cs" />
+    <Compile Include="Models\Responses\BrainsResponse.cs" />
     <Compile Include="Models\Responses\RatingResponse.cs" />
+    <Compile Include="Models\Responses\UnitResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\RatingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -193,6 +201,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\HistoricalRatings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -209,6 +218,12 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\C#\CSharpExamples.csproj">
+      <Project>{b19d036f-5cda-4561-8f53-4d26c6e53bc6}</Project>
+      <Name>CSharpExamples</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
