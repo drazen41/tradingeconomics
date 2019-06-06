@@ -93,6 +93,7 @@
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Services\RatingServiceTest.cs" />
     <Compile Include="Services\ApiServiceTest.cs" />
+    <Compile Include="Services\BrainServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />

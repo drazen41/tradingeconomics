@@ -8,6 +8,6 @@ namespace TE1.Models.Responses
     public class BrainsResponse
     {
         public InfoResponse Info { get; set; }
-
+        public List<HitsResponse> Hits { get; set; }
     }
 }

@@ -154,12 +154,14 @@
     <Compile Include="Models\Responses\CountryResponse.cs" />
     <Compile Include="Models\Responses\CurrencyResponse.cs" />
     <Compile Include="Models\Responses\FacetsResponse.cs" />
+    <Compile Include="Models\Responses\HitsResponse.cs" />
     <Compile Include="Models\Responses\InfoResponse.cs" />
     <Compile Include="Models\Responses\BrainsResponse.cs" />
     <Compile Include="Models\Responses\RatingResponse.cs" />
     <Compile Include="Models\Responses\UnitResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\BrainService.cs" />
     <Compile Include="Services\RatingService.cs" />
   </ItemGroup>
   <ItemGroup>

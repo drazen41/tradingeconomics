@@ -45,6 +45,15 @@ namespace TE1.Services
             return rr;
 
         }
+        public async static Task<BrainsResponse> GetBrainsResponse(string query)
+        {
+            BrainsResponse brainsResponse = null;
+            string data = await BrainsData(query);
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+            brainsResponse = jss.Deserialize<BrainsResponse>(data);
+
+            return brainsResponse;
+        }
         //https://brains.tradingeconomics.com/v2/search/wb,fred,comtrade?q=nigeria&pp=50&p=0&_=1557934352427&stance=2
         public async static Task<string> BrainsData(string query, string baseURL= "https://brains.tradingeconomics.com/")
         {
