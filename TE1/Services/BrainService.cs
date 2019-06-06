@@ -12,5 +12,9 @@ namespace TE1.Services
         {
             return  ApiService.GetBrainsResponse(query).Result;
         }
+        public IEnumerable<HitsResponse> GetHitsResponse(string query)
+        {
+            return ApiService.GetBrainsResponse(query).Result.Hits;
+        }
     }
 }

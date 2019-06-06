@@ -38,5 +38,11 @@ namespace TE1.Controllers
             var model = RatingService.GetHistoricalRatings(countries).OrderBy(x=>x.Country).ThenByDescending(x=>x.Date).ToList();
             return View("HistoricalRatings", model);
         }
+        public ActionResult HitsResponse()
+        {
+            BrainService bs = new BrainService();
+            var model = bs.GetHitsResponse("");
+            return View("HitsResponse", model);
+        }
     }
 }
