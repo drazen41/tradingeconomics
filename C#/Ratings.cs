@@ -105,7 +105,7 @@ namespace CSharpExamples
                     client.DefaultRequestHeaders.Clear();
 
                     //ADD Acept Header to tell the server what data type you want
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                     //ADD Authorization
                     AuthenticationHeaderValue auth = new AuthenticationHeaderValue("Client", _clientKey);
