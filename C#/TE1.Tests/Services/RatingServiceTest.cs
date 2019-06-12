@@ -19,15 +19,16 @@ namespace TE1.Tests.Services
         public void GetRatingForCountries()
         {
             RatingService rs = new RatingService();
-            string[] countries = new string[] { "croatia","slovenia" };
+            string[] countries = new string[] { "nigeria","portugal","italy","greece","spain" };
             var rr = rs.GetRatingForCountries(countries);
         }
         [TestMethod]
         public void GetHistoricalRatings()
         {
             RatingService rs = new RatingService();
-            string[] countries = new string[] { "croatia", "slovenia","nigeria" };
+            string[] countries = new string[] { "Greece" };
             var rr = rs.GetHistoricalRatings(countries);
+            
         }
     }
 }

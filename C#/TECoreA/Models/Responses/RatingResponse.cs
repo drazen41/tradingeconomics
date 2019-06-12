@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
-namespace TE1.Models.Responses
+namespace TECore.Models.Responses
 {
+    
     public class RatingResponse
     {
         public string Country { get; set; }

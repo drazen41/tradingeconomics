@@ -1,0 +1,77 @@
+﻿@model IEnumerable<TECore.Models.Responses.RatingResponse>
+
+@{
+    ViewBag.Title = "Ratings";
+}
+
+<h2>Ratings</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TE)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.TE_Outlook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SP_Outlook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Moodys)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Moodys_Outlook)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fitch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fitch_outlook)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TE)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.TE_Outlook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SP_Outlook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Moodys)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Moodys_Outlook)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fitch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fitch_outlook)
+        </td>
+       
+    </tr>
+}
+
+</table>
