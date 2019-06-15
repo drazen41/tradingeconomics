@@ -14,5 +14,6 @@ namespace TEWebForms.Factory
                 "ratings"));
             return await GetTAsync<List<RatingResponse>>(requestUrl);
         }
+        
     }
 }

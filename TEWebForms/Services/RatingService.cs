@@ -17,12 +17,15 @@ namespace TEWebForms.Services
         {
             ApiClient = ApiClientFactory.Instance;
         }
-        public async Task<List<RatingResponse>> GetRatings()
+        public async Task<List<RatingResponse>> GetRatingsAsync()
         {
             var requestUrl = ApiClient.CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
                 "ratings"));
             return await ApiClient.GetTAsync<List<RatingResponse>>(requestUrl);
         }
-
+        public List<RatingResponse> GetRatings()
+        {
+            return GetRatingsAsync().Result;
+        }
     }
 }
