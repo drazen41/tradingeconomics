@@ -55,6 +55,7 @@
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/Rating">Rating</a></li>
                         <li><a runat="server" href="~/Indicators">Indicators</a></li>
+                         <li><a runat="server" href="~/Calendar">Calendar</a></li>
                     </ul>
                 </div>
             </div>

@@ -128,6 +128,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Indicators.aspx" />
+    <Content Include="Calendar.aspx" />
     <Content Include="Rating.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -201,6 +202,7 @@
       <DependentUpon>Indicators.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Responses\BrainsResponse.cs" />
+    <Compile Include="Models\Responses\CalendarResponse.cs" />
     <Compile Include="Models\Responses\CountryResponse.cs" />
     <Compile Include="Models\Responses\CurrencyResponse.cs" />
     <Compile Include="Models\Responses\FacetsResponse.cs" />
@@ -210,6 +212,13 @@
     <Compile Include="Models\Responses\RatingResponse.cs" />
     <Compile Include="Models\Responses\UnitResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rating.aspx.cs">
       <DependentUpon>Rating.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,6 +226,7 @@
     <Compile Include="Rating.aspx.designer.cs">
       <DependentUpon>Rating.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Services\CalendarService.cs" />
     <Compile Include="Services\IndicatorService.cs" />
     <Compile Include="Services\RatingService.cs" />
     <Compile Include="Site.Master.cs">
