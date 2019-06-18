@@ -41,7 +41,7 @@ namespace TECoreA.Controllers
         }
         public async Task<IActionResult> Ratings()
         {
-            var data = await ratingService.GetRatings();
+            var data = await ratingService.GetRatingsAsync();
             //var data = await ApiClientFactory.Instance.GetRatings();
             return View(data);
         }

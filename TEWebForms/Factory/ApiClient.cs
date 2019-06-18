@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -30,13 +31,14 @@ namespace TEWebForms.Factory
              
             response.EnsureSuccessStatusCode();
             var data = await response.Content.ReadAsStringAsync();
-            var parsed = JToken.Parse(data);
-            var a = parsed.ToObject<T>();
+            //var parsed = JToken.Parse(data);
+            //var a = parsed.ToObject<T>();
             //JavaScriptSerializer jss = new JavaScriptSerializer();
             //return jss.Deserialize<T>(data);
+            var format = "dd.MM.yyyy";
+            var dateTimeConverter = new IsoDateTimeConverter { DateTimeFormat = format };
+            return  JsonConvert.DeserializeObject<T>(data,dateTimeConverter);
 
-            return  JsonConvert.DeserializeObject<T>(data);
-            
         }
         public Uri CreateRequestUri(string relPath, string queryString="")
         {
