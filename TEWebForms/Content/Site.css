@@ -17,7 +17,9 @@ select,
 textarea {
     max-width: 280px;
 }
-
+table {
+    width: 100%;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
@@ -32,3 +34,11 @@ textarea {
 table thead tr:hover {
     cursor:pointer;
 }
+.calendarTime {
+    background-color:darkred;
+    color:white;
+    padding:2px;
+    
+    
+}
+

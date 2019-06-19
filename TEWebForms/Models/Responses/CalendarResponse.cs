@@ -7,7 +7,7 @@ namespace TEWebForms.Models.Responses
 {
     public class CalendarResponse
     {
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string Country { get; set; }
         public string Category { get; set; }
         public string Event { get; set; }

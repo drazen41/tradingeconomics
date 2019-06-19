@@ -1,32 +1,35 @@
-﻿<%@ Page Async="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="TEWebForms.Calendar" Title="Events" %>
-
+﻿<%@ Page Culture ="auto" UICulture="auto" Async="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="TEWebForms.Calendar" Title="Events" %>
+<asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server" >
+    <link href="/TEWebForms/Content/flags.css" rel="stylesheet" />
+</asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %></h2>
-    <h3>All events.</h3>
-    <asp:Repeater ID="rptCalendar" runat="server" >
+
+    <asp:Repeater ID="rptCalendar" runat="server" OnItemDataBound="rptCalendar_ItemDataBound"  >
         <HeaderTemplate>
-            <table style="border:1px solid #0000FF; width:500px" cellpadding="0">  
-    <%--<tr style="background-color:#FF6600; color:#000000; font-size: large; font-weight: bold;">  
-    <td >  
-    <b><asp:Label ID="lblDate" runat="server" Text='<%#Bind("Date") %>' /></b>  
-        <td></td>
-          <td></td>
-          <td></td>
-    </td>  
-    </tr>  --%>
+            <table  style="width:80%;" >  
+   
         </HeaderTemplate>
         <ItemTemplate>
-            <tr>
-                <td><asp:Label ID="labelDate" runat="server" Text='<%#FormatiranDatum(Eval("Date").ToString()) %>' /></td>
+            <tr style="background-color:lightgray;margin:2px;border:solid 1px; border-color:lightcyan; padding:5px; font-size:large">
+                <td colspan="3"><asp:Label ID="labelDate" runat="server" Text='<%#string.Format("{0:D}",Eval("Date")) %>'  /></td>
                 <td>Actual</td>
                 <td>Previous</td>
                 <td>Forecast</td>
             </tr>
-            <asp:Repeater ID="rtpDetails" runat="server">
+            <asp:Repeater ID="rtpDetails" runat="server" OnItemDataBound="rptDetails_ItemDataBound" >
                 <ItemTemplate>
-                    <tr>
+                    <tr style="margin:2px;border:solid 1px; border-color:lightcyan;">
+                        <asp:HiddenField id="hfCountry" runat="server"  />
                 <td>
-                    <asp:Label ID="lblDate" runat="server" Text='<%#Eval("Date") %>' />
+                   <div style="width:70%" class ="calendarTime"><asp:Label  ID="lblDate" runat="server" Text='<%#string.Format("{0:t}",Eval("Date")) %>' /></div> 
+                </td>
+                        <td>
+                    <%--<asp:Label ID="Label2" runat="server" Text='<%#Eval("Country") %>' />--%>
+                            <asp:Table ID="tblCountry" runat="server" ></asp:Table>
+                </td>
+                        <td>
+                    <asp:Label ID="Label1" runat="server" Text='<%#Eval("Event") %>' />
                 </td>
                 <td>
                     <asp:Label ID="lblActual" runat="server" Text='<%#Eval("Actual") %>' />
