@@ -8,7 +8,12 @@
     <asp:Repeater ID="rptCalendar" runat="server" OnItemDataBound="rptCalendar_ItemDataBound"  >
         <HeaderTemplate>
             <table  style="width:80%;" >  
-   
+   <%--<tr style="background-color:lightgray;margin:2px;border:solid 1px; border-color:lightcyan; padding:5px; font-size:large">
+                <td colspan="3"><asp:Label ID="labelDate" runat="server" Text='<%#string.Format("{0:D}",Eval("Date")) %>'  /></td>
+                <td>Actual</td>
+                <td>Previous</td>
+                <td>Forecast</td>
+            </tr>--%>
         </HeaderTemplate>
         <ItemTemplate>
             <tr style="background-color:lightgray;margin:2px;border:solid 1px; border-color:lightcyan; padding:5px; font-size:large">

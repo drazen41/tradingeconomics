@@ -76,6 +76,7 @@ namespace TEWebForms
             {
                 Repeater dogadaji = (Repeater)e.Item.FindControl("rtpDetails");
                 Label lbl = (Label)e.Item.FindControl("labelDate");
+                //Label lbl = (Label)rptCalendar.Controls[0].Controls[0].FindControl("labelDate");
                 DateTime datum = DateTime.Parse(lbl.Text);
                 var podaci = listaDogadaji.Where(x => x.Date.Date == datum);
                 dogadaji.DataSource = podaci;
