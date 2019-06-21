@@ -57,10 +57,10 @@ namespace TEWebForms
             }
             ContentPlaceHolder cont = (ContentPlaceHolder)this.Master.FindControl("MainContent");
             Panel panel = (Panel)cont.FindControl("pnlCountries");
-            if (panel != null && !Page.IsPostBack)
+            if (!Page.IsPostBack)
                 PopulateCountries(panel);
-            else
-                ToggleCountries();
+            //else
+            //    ToggleCountries();
 
         }
         protected void Page_PreRender(object sender, EventArgs e)
@@ -161,13 +161,13 @@ namespace TEWebForms
         }
         protected void pnlCountries_PreRender(object sender, EventArgs e)
         {
-            Panel panel = (Panel)sender;
-            if (Session["pnlCountries"] == null)
-            {
-                PopulateCountries(panel);
-                Session["pnlCountries"] = true;
-                panel.Visible = false;
-            }
+            //Panel panel = (Panel)sender;
+            //if (Session["pnlCountries"] == null)
+            //{
+            //    PopulateCountries(panel);
+            //    Session["pnlCountries"] = true;
+            //    //panel.Visible = false;
+            //}
             //if (!Page.IsPostBack)
             //{
             //    PopulateCountries(panel);

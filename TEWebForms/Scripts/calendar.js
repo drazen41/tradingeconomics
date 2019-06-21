@@ -1,4 +1,7 @@
-﻿function toggleCountries() {
+﻿$().ready(function () {
+    document.getElementById("#MainContent_pnlCountries").style.display = 'none';
+});
+function toggleCountries() {
     //alert("toggleCountries");
     //if ($("#divCountries").length == 0) {
     //    var elementi = "<div id='divCountries'><table><tbody><tr><td><input type='checkbox' value='Mexico' onclick='cbCountryClick(this.value)' /> Mexico</td></tr>";
