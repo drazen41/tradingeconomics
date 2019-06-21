@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -54,20 +55,43 @@ namespace TEWebForms
             {
                 dicti = (Dictionary<string, string>)Session["countryCodes"];
             }
-            
+            ContentPlaceHolder cont = (ContentPlaceHolder)this.Master.FindControl("MainContent");
+            Panel panel = (Panel)cont.FindControl("pnlCountries");
+            if (panel != null && !Page.IsPostBack)
+                PopulateCountries(panel);
+            else
+                ToggleCountries();
+
+        }
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            Panel pnl = (Panel)Page.FindControl("pnlCountries");
         }
         private void PopulateCountries(Panel pnl)
         {
-            var panel = pnl;
+            Panel panel = pnl;
+            if (panel == null)
+                panel = (Panel)Page.FindControl("pnlCountries");
+           
             Table tbl = new Table();
+            
             TableRow tr = new TableRow();
             TableCell tc = new TableCell();
             CheckBox cb = new CheckBox();
             cb.Text = "Mexico";
+            cb.CheckedChanged += new EventHandler(cbCountry_CheckedChanged);
+            cb.AutoPostBack = true;
             tc.Controls.Add(cb);
             tr.Controls.Add(tc);
             tbl.Controls.Add(tr);
             panel.Controls.Add(tbl);
+        }
+
+        private void cbCountry_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            cb.Checked = false;
+            cb.Text = "Test";
         }
 
         private async Task GetCalendarSvcAsync()
@@ -129,7 +153,12 @@ namespace TEWebForms
                 
             }
         }
-
+        private void ToggleCountries()
+        {
+            ContentPlaceHolder cont = (ContentPlaceHolder)this.Master.FindControl("MainContent");
+            var panel = (Panel)Page.FindControl("pnlCountries");
+            //panel.Visible = panel.Visible == true ? false : true;
+        }
         protected void pnlCountries_PreRender(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
@@ -139,10 +168,10 @@ namespace TEWebForms
                 Session["pnlCountries"] = true;
                 panel.Visible = false;
             }
-            else
-            {
-                panel.Visible = panel.Visible == true ? false : true;
-            }
+            //if (!Page.IsPostBack)
+            //{
+            //    PopulateCountries(panel);
+            //}
 
 
         }
