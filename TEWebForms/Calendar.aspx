@@ -3,8 +3,51 @@
     <link href="/TEWebForms/Content/flags.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %></h2>
-
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server"> 
+        <ContentTemplate>
+            <br />
+            <table style="width:100%">
+                <tbody>
+                    <tr>
+                        <td>
+                             <div class="btn-group">
+    <button class ="btn btn-default" type="button">
+        <i class="glyphicon glyphicon-globe"></i>
+        &nbsp;Countries&nbsp;
+        <span class="caret"></span>
+    </button>
+    <div class="btn-group">
+ 
+    <button class ="btn btn-default" type="button">
+        <i class="glyphicon glyphicon-calendar"></i>
+        &nbsp;Dates&nbsp;
+        <span class="caret"></span>
+    </button>
+    </div>
+<div class="btn-group">
+    <button class ="btn btn-default" type="button">
+        <i class="glyphicon glyphicon-star"></i>
+        &nbsp;Impact&nbsp;
+        <span class="caret"></span>
+    </button>
+    </div>
+        <div class="btn-group">                    
+    <button class ="btn btn-default" type="button">
+        
+        &nbsp;UTC&nbsp;
+        <span class="caret"></span>
+    </button>
+    </div></div>
+                        </td>
+                        <td>
+                           
+                        </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+    
+   <br /><br />
     <asp:Repeater ID="rptCalendar" runat="server" OnItemDataBound="rptCalendar_ItemDataBound"  >
         <HeaderTemplate>
             <table  style="width:80%;" >  
@@ -56,6 +99,8 @@
             </table>
         </FooterTemplate>
     </asp:Repeater>
+            </ContentTemplate>
+    </asp:UpdatePanel>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetCalendars" TypeName="TEWebForms.Services.CalendarService"></asp:ObjectDataSource>
-    </asp:Content>
+        </asp:Content>
 
