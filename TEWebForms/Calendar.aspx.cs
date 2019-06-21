@@ -54,8 +54,22 @@ namespace TEWebForms
             {
                 dicti = (Dictionary<string, string>)Session["countryCodes"];
             }
+            
         }
-        
+        private void PopulateCountries(Panel pnl)
+        {
+            var panel = pnl;
+            Table tbl = new Table();
+            TableRow tr = new TableRow();
+            TableCell tc = new TableCell();
+            CheckBox cb = new CheckBox();
+            cb.Text = "Mexico";
+            tc.Controls.Add(cb);
+            tr.Controls.Add(tc);
+            tbl.Controls.Add(tr);
+            panel.Controls.Add(tbl);
+        }
+
         private async Task GetCalendarSvcAsync()
         {
             var calendarService = new CalendarService();
@@ -116,7 +130,23 @@ namespace TEWebForms
             }
         }
 
+        protected void pnlCountries_PreRender(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            if (Session["pnlCountries"] == null)
+            {
+                PopulateCountries(panel);
+                Session["pnlCountries"] = true;
+                panel.Visible = false;
+            }
+            else
+            {
+                panel.Visible = panel.Visible == true ? false : true;
+            }
 
 
+        }
+
+       
     }
 }

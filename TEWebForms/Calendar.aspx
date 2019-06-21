@@ -1,6 +1,7 @@
 ﻿<%@ Page Culture ="auto" UICulture="auto" Async="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Calendar.aspx.cs" Inherits="TEWebForms.Calendar" Title="Events" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContent" runat="server" >
     <link href="/TEWebForms/Content/flags.css" rel="stylesheet" />
+    <script src="/TEWebForms/Scripts/calendar.js" type="text/javascript"></script>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server"> 
@@ -8,14 +9,15 @@
             <br />
             <table style="width:100%">
                 <tbody>
-                    <tr>
-                        <td>
+                    <tr id="buttons">
+                        <td >
                              <div class="btn-group">
-    <button class ="btn btn-default" type="button">
+    <button class ="btn btn-default" type="submit" onclick="toggleCountries()" runat="server" id="btnCountries"    >
         <i class="glyphicon glyphicon-globe"></i>
         &nbsp;Countries&nbsp;
         <span class="caret"></span>
     </button>
+    
     <div class="btn-group">
  
     <button class ="btn btn-default" type="button">
@@ -46,7 +48,10 @@
                     </tr>
                 </tbody>
             </table>
-    
+
+   <asp:Panel runat="server" ID="pnlCountries" OnPreRender="pnlCountries_PreRender"   >
+       
+   </asp:Panel>
    <br /><br />
     <asp:Repeater ID="rptCalendar" runat="server" OnItemDataBound="rptCalendar_ItemDataBound"  >
         <HeaderTemplate>
