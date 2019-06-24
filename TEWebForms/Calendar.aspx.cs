@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Caching;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TEWebForms.Models.Responses;
@@ -21,47 +22,20 @@ namespace TEWebForms
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterAsyncTask(new PageAsyncTask(GetCalendarSvcAsync));
-            
-            if (Session["countryCodes"] == null)
-            {
-                var pathToCsv = HttpContext.Current.Server.MapPath("~/App_Data/") + "CountryCodes.txt";
-                var data = File.ReadLines(pathToCsv).Select(line => line.Split(','));
-                //var data = File.ReadLines(pathToCsv);
-                char[] quotes = { '\"', ' ' };
-                foreach (var d in data)
-                {
-                    
-                    string val = "";
-                    string key = "";
-                    if (d.Count() > 2)
-                    {
-                        var d0 = d[0].Trim(quotes).Replace("\\\"", "\"");
-                        var d1 = d[1].Trim(quotes).Replace("\\\"", "\""); 
-                        val = d0 + "-" + d1;
-                        key = d[2];
-                    }
-                    else
-                    {
-                        val = d[0];
-                        key = d[1];
-                    }
-                    
-                    dicti.Add(key, val);
-                    Session["countryCodes"] = dicti;
-                }
-                //var dict = data.ToDictionary(line => line[0], line => line[1]);
-            }
+            var kes = Cache["CountryCodes"];
+            if (kes == null)
+                Kesiraj();
             else
-            {
-                dicti = (Dictionary<string, string>)Session["countryCodes"];
-            }
+                dicti = (Dictionary < string, string >) kes;
+
+            
             ContentPlaceHolder cont = (ContentPlaceHolder)this.Master.FindControl("MainContent");
             Panel panel = (Panel)cont.FindControl("pnlCountries");
-            if (!Page.IsPostBack)
-                PopulateCountries(panel);
-            //else
-            //    ToggleCountries();
+            //if (!Page.IsPostBack)
 
+                //else
+                //    ToggleCountries();
+                PopulateCountries(panel);
         }
         protected void Page_PreRender(object sender, EventArgs e)
         {
@@ -85,6 +59,7 @@ namespace TEWebForms
             tr.Controls.Add(tc);
             tbl.Controls.Add(tr);
             panel.Controls.Add(tbl);
+            //panel.CssClass = "countries";
         }
 
         private void cbCountry_CheckedChanged(object sender, EventArgs e)
@@ -176,6 +151,41 @@ namespace TEWebForms
 
         }
 
-       
+        protected void btnCountries_ServerClick(object sender, EventArgs e)
+        {
+            var obj = sender;
+        }
+        private void Kesiraj()
+        {
+            Dictionary<string, string> dicti = new Dictionary<string, string>();
+            var pathToCsv = HttpContext.Current.Server.MapPath("~/App_Data/") + "CountryCodes.txt";
+            var data = File.ReadLines(pathToCsv).Select(line => line.Split(','));
+            //var data = File.ReadLines(pathToCsv);
+            char[] quotes = { '\"', ' ' };
+            foreach (var d in data)
+            {
+
+                string val = "";
+                string key = "";
+                if (d.Count() > 2)
+                {
+                    var d0 = d[0].Trim(quotes).Replace("\\\"", "\"");
+                    var d1 = d[1].Trim(quotes).Replace("\\\"", "\"");
+                    val = d0 + "-" + d1;
+                    key = d[2];
+                }
+                else
+                {
+                    val = d[0];
+                    key = d[1];
+                }
+
+                dicti.Add(key, val);
+
+            }
+            Cache.Add("CountryCodes", dicti,null,System.Web.Caching.Cache.NoAbsoluteExpiration,new TimeSpan(1000,0,0),CacheItemPriority.Normal,null);
+           
+            
+        }
     }
 }

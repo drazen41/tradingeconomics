@@ -41,4 +41,6 @@ table thead tr:hover {
     
     
 }
-
+.countries {
+    display:none;
+}

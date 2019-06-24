@@ -12,7 +12,7 @@
                     <tr id="buttons">
                         <td >
                              <div class="btn-group">
-    <button class ="btn btn-default" type="submit" onclick="toggleCountries()" runat="server" id="btnCountries"    >
+    <button class ="btn btn-default" type="submit" onclick="toggleCountries()" runat="server" id="btnCountries" onserverclick="btnCountries_ServerClick"   >
         <i class="glyphicon glyphicon-globe"></i>
         &nbsp;Countries&nbsp;
         <span class="caret"></span>
